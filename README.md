@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Retail Branding — website (MVP)
 
-## Getting Started
-
-First, run the development server:
+Next.js 16 (App Router, Cache Components) + Tailwind CSS 4, built from the *Retail Branding Website Blueprint v1.0*.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build && npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Where things live
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| What | File |
+| --- | --- |
+| Contact details, coverage flag, nav | `src/lib/site.ts` |
+| Categories, products, solutions, services, FAQ, districts | `src/lib/catalog.ts` |
+| Pricing rules + estimate engine (shared client/server) | `src/lib/pricing.ts` |
+| Form validation (Zod, BD mobile numbers) | `src/lib/validation.ts` |
+| Server actions: quote, order, contact | `src/app/actions.ts` |
+| Storage (JSONL + private uploads in `.data/`) | `src/lib/server/store.ts` |
+| Design tokens | `src/app/globals.css` |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Before launch (blueprint §18, §22)
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Prices are placeholders.** Replace `rules` in `pricing.ts` and the preset prices in `catalog.ts`, or set `ESTIMATES_ENABLED = false` to show "Quote required" instead.
+- **Contacts.** Set phone / WhatsApp / email in `site.ts`. WhatsApp and call buttons stay hidden until then.
+- **Coverage.** Set `nationwideCoverageVerified` once delivery and installation areas are confirmed.
+- **Storage.** `.data/` is for local and single-server use only. Move to PostgreSQL and object storage, and add malware scanning for uploads.
+- **Payments.** No payment provider is integrated. Orders are saved as `pending_confirmation`, and payment instructions are sent manually.
+- **Policies** under `/policies/*` are drafts that need legal review.
+- **Photos.** Products use labelled illustrations until genuine project photos are supplied. `/projects` stays empty until permissions are verified.
+- **Bangla.** The header toggle switches UI labels only. Full `/bn` content routes need professional translation.
+- **Admin.** There is no admin dashboard yet. Quotes, orders and contacts are in `.data/*.jsonl`.

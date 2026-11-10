@@ -1,26 +1,286 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * Design tokens (blueprint §10). Colours are visual approximations of the
+ * logo — replace with official brand master values when available.
+ */
+@theme {
+  --color-navy: #303577;
+  --color-navy-700: #252a63;
+  --color-navy-900: #1b1f4a;
+  --color-navy-50: #eef0fa;
+  --color-yellow: #ffcc00;
+  --color-yellow-600: #e6b800;
+  --color-yellow-50: #fff8db;
+  --color-ink: #161b2b;
+  --color-muted: #677084;
+  --color-canvas: #f7f8fb;
+  --color-line: #e4e7ee;
+  --color-success: #157347;
+  --color-error: #b42318;
+
+  --font-sans: var(--font-manrope), var(--font-bangla), ui-sans-serif, system-ui, sans-serif;
+  --font-bangla-stack: var(--font-bangla), var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 5rem;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  html[lang="bn"] body {
+    font-family: var(--font-bangla-stack);
+  }
+
+  body {
+    background: var(--color-canvas);
+    color: var(--color-ink);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--color-navy);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-yellow);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Dark surfaces keep a visible focus ring with an inner navy halo. */
+  .on-dark :focus-visible {
+    box-shadow: 0 0 0 5px var(--color-navy-900);
+  }
+
+  summary {
+    cursor: pointer;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  [lang="bn"] {
+    font-family: var(--font-bangla-stack);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .container-page {
+    width: 100%;
+    max-width: 80rem; /* 1280px, within the 1200–1320 range */
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container-page {
+      padding-inline: 1.5rem;
+    }
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 2.875rem; /* 46px touch target */
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.625rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    transition: background-color 150ms, color 150ms, border-color 150ms;
+  }
+  .btn:disabled,
+  .btn[aria-disabled="true"] {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+  .btn-primary {
+    background: var(--color-yellow);
+    color: var(--color-navy-900);
+  }
+  .btn-primary:hover {
+    background: var(--color-yellow-600);
+  }
+  .btn-secondary {
+    background: var(--color-navy);
+    color: #fff;
+  }
+  .btn-secondary:hover {
+    background: var(--color-navy-700);
+  }
+  .btn-outline {
+    border: 2px solid var(--color-navy);
+    color: var(--color-navy);
+    background: transparent;
+  }
+  .btn-outline:hover {
+    background: var(--color-navy-50);
+  }
+  .btn-ghost-light {
+    border: 2px solid rgb(255 255 255 / 0.6);
+    color: #fff;
+  }
+  .btn-ghost-light:hover {
+    background: rgb(255 255 255 / 0.1);
+  }
+
+  .card {
+    background: #fff;
+    border: 1px solid var(--color-line);
+    border-radius: 0;
+  }
+
+  /*
+   * Clickable cards: lift + yellow accent bar on hover/keyboard focus,
+   * press-down on click/tap. Hover effects only on devices that can hover,
+   * so touch screens don't get "stuck" hover states.
+   */
+  .card-link {
+    position: relative;
+    transition:
+      transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1),
+      box-shadow 220ms ease,
+      border-color 220ms ease;
+  }
+  .card-link::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 4px;
+    background: var(--color-yellow);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    z-index: 2;
+    pointer-events: none;
+  }
+  .card-link .card-media > * {
+    transition: transform 400ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .card-link .card-arrow,
+  .card-link .card-arrow-icon {
+    transition: transform 220ms ease, background-color 220ms ease;
+  }
+
+  @media (hover: hover) {
+    .card-link:hover {
+      transform: translateY(-6px);
+      border-color: var(--color-navy);
+      box-shadow: 0 18px 32px -18px rgb(27 31 74 / 0.45);
+    }
+    .card-link:hover::before {
+      transform: scaleX(1);
+    }
+    .card-link:hover .card-media > * {
+      transform: scale(1.05);
+    }
+    .card-link:hover .card-arrow {
+      background: var(--color-yellow);
+      transform: translateX(3px);
+    }
+    .card-link:hover .card-arrow-icon {
+      transform: translateX(4px);
+    }
+  }
+
+  .card-link:focus-within {
+    border-color: var(--color-navy);
+  }
+  .card-link:focus-within::before {
+    transform: scaleX(1);
+  }
+
+  .card-link:active {
+    transform: translateY(-1px) scale(0.98);
+    box-shadow: 0 6px 14px -10px rgb(27 31 74 / 0.5);
+    transition-duration: 90ms;
+  }
+
+  /* Selectable option cards (configurator, checkout). */
+  .option-card {
+    transition:
+      transform 120ms ease,
+      border-color 150ms ease,
+      background-color 150ms ease;
+  }
+  .option-card:active {
+    transform: scale(0.98);
+  }
+
+  .eyebrow {
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-navy);
+  }
+
+  .field-label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    margin-bottom: 0.375rem;
+  }
+  .field {
+    width: 100%;
+    min-height: 2.875rem;
+    padding: 0.625rem 0.875rem;
+    border: 1.5px solid #c9ceda;
+    border-radius: 0.625rem;
+    background: #fff;
+    font-size: 1rem; /* prevents iOS zoom */
+  }
+  .field:focus-visible {
+    outline: 3px solid var(--color-yellow);
+    outline-offset: 0;
+    border-color: var(--color-navy);
+  }
+  .field[aria-invalid="true"] {
+    border-color: var(--color-error);
+  }
+  .field-hint {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+    margin-top: 0.25rem;
+  }
+  .field-error {
+    font-size: 0.875rem;
+    color: var(--color-error);
+    margin-top: 0.25rem;
+    font-weight: 600;
+  }
+
+  .prose-rb p + p {
+    margin-top: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-link,
+  .card-link:hover,
+  .card-link:active,
+  .option-card:active,
+  .card-link .card-media > * {
+    transform: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
