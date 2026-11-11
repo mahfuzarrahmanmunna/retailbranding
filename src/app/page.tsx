@@ -11,7 +11,8 @@ import {
   IconUpload,
   IconWrench,
 } from "@/components/icons";
-import { CategoryTile, FAQAccordion, ProductCard, QuoteCTA, Section } from "@/components/ui";
+import { FAQAccordion, ProductCard, QuoteCTA, Section } from "@/components/ui";
+import { PricingChip, SignboardCategoryCard, SignboardHelpCard } from "@/components/signboard-card";
 import { categories, faqs, materialsGuide, products, productsInCategory, solutions } from "@/lib/catalog";
 
 export default function HomePage() {
@@ -24,6 +25,7 @@ export default function HomePage() {
       <Section
         id="categories"
         eyebrow="Products"
+        className="bg-[radial-gradient(ellipse_at_top,_#eef0fa,_transparent_60%)]"
         title="Shop by Signage Type"
         intro="Start with the type of sign you need. Every category shows whether items have a fixed price, an instant estimate, or need a quotation."
         action={
@@ -32,23 +34,30 @@ export default function HomePage() {
           </Link>
         }
       >
+        <div className="mb-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted">
+          <span className="font-bold text-navy">Pricing key:</span>
+          <span className="inline-flex items-center gap-2">
+            <PricingChip mode="fixed" /> Order directly
+          </span>
+          <span className="inline-flex items-center gap-2">
+            <PricingChip mode="estimate" /> Live estimate in the builder
+          </span>
+          <span className="inline-flex items-center gap-2">
+            <PricingChip mode="quote" /> Priced after site review
+          </span>
+        </div>
         <ul className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
-          {categories.map((c) => (
-            <li key={c.slug}>
-              <CategoryTile category={c} count={productsInCategory(c.slug).length} />
-            </li>
-          ))}
+          {categories.map((c) => {
+            const items = productsInCategory(c.slug);
+            const modes = Array.from(new Set(items.map((p) => p.pricingMode)));
+            return (
+              <li key={c.slug}>
+                <SignboardCategoryCard category={c} count={items.length} modes={modes} />
+              </li>
+            );
+          })}
           <li>
-            <Link
-              href="/quote"
-              className="flex h-full min-h-48 flex-col justify-between card-link rounded-none border-2 border-dashed border-navy/30 bg-white p-5"
-            >
-              <span className="text-lg font-extrabold text-navy">Unsure what you need?</span>
-              <span className="text-muted">Describe your space and we&apos;ll recommend options.</span>
-              <span className="inline-flex items-center gap-1 font-bold text-navy">
-                Ask an expert <IconArrowRight />
-              </span>
-            </Link>
+            <SignboardHelpCard />
           </li>
         </ul>
       </Section>
