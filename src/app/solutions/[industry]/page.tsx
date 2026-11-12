@@ -35,7 +35,7 @@ export default async function SolutionPage({ params }: PageProps<"/solutions/[in
               <li key={c} className="flex gap-2"><IconCheck className="mt-1 shrink-0 text-success" />{c}</li>
             ))}
           </ul>
-          <Link href="/quote" className="btn btn-primary mt-6 w-full">Plan my {solution.name.toLowerCase()} project</Link>
+          <Link href="#" className="btn btn-primary mt-6 w-full">Plan my {solution.name.toLowerCase()} project</Link>
         </aside>
         <div>
           <h2 className="mb-5 text-2xl">Recommended products</h2>

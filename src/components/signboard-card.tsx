@@ -244,7 +244,7 @@ export function SignboardCategoryCard({
 
   return (
     <Link
-      href={`/categories/${category.slug}`}
+      href="#"
       className="sb-card group"
       style={{ "--sb-accent": scene.accent } as CSSProperties}
     >
@@ -283,7 +283,7 @@ export function SignboardCategoryCard({
 /** Final tile: a hanging chalkboard inviting visitors to ask an expert. */
 export function SignboardHelpCard() {
   return (
-    <Link href="/quote" className="sb-card group" style={{ "--sb-accent": "#ffcc00" } as CSSProperties}>
+    <Link href="#" className="sb-card group" style={{ "--sb-accent": "#ffcc00" } as CSSProperties}>
       <div className="sb-scene sb-wall-yellow" aria-hidden="true">
         <div className="sb-sign">
           <span className="sb-nail" />

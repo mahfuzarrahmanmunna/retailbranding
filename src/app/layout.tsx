@@ -40,7 +40,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <div className="bg-navy-900 text-white">
           <p className="container-page py-2 text-center text-[13px] font-semibold sm:text-sm">
             {announcement}{" "}
-            <Link href="/quote" className="ml-1 whitespace-nowrap text-yellow underline underline-offset-4">
+            <Link href="#" className="ml-1 whitespace-nowrap text-yellow underline underline-offset-4">
               Get a quote
             </Link>
           </p>

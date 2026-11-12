@@ -58,7 +58,7 @@ export function CheckoutForm() {
           <li>Approval — you approve the artwork proof.</li>
           <li>Production → dispatch → installed / completed.</li>
         </ol>
-        <Link href="/products" className="btn btn-outline mt-6">
+        <Link href="#" className="btn btn-outline mt-6">
           Continue browsing
         </Link>
       </div>
@@ -69,7 +69,7 @@ export function CheckoutForm() {
     return (
       <div className="card p-8 text-center">
         <h2 className="text-2xl">Your cart is empty</h2>
-        <Link href="/products" className="btn btn-primary mt-6">
+        <Link href="#" className="btn btn-primary mt-6">
           {t("exploreProducts")}
         </Link>
       </div>
@@ -141,9 +141,9 @@ export function CheckoutForm() {
           </p>
           <Checkbox name="terms" error={e.terms} defaultChecked={v.terms === "on"}>
             I have read the{" "}
-            <Link href="/policies/terms" className="font-semibold text-navy underline">order terms</Link>,{" "}
-            <Link href="/policies/cancellations-refunds" className="font-semibold text-navy underline">cancellation & refund policy</Link> and{" "}
-            <Link href="/policies/privacy" className="font-semibold text-navy underline">privacy notice</Link>, and agree to be contacted about this order.
+            <Link href="#" className="font-semibold text-navy underline">order terms</Link>,{" "}
+            <Link href="#" className="font-semibold text-navy underline">cancellation & refund policy</Link> and{" "}
+            <Link href="#" className="font-semibold text-navy underline">privacy notice</Link>, and agree to be contacted about this order.
           </Checkbox>
         </fieldset>
       </div>
@@ -175,7 +175,7 @@ export function CheckoutForm() {
         <button type="submit" className="btn btn-primary w-full text-[17px]" disabled={pending}>
           {pending ? "Placing order…" : "Place Order Request"}
         </button>
-        <Link href="/cart" className="block text-center font-semibold text-navy underline">
+        <Link href="#" className="block text-center font-semibold text-navy underline">
           Edit cart
         </Link>
       </aside>

@@ -33,7 +33,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/85">
       <div className="container-page flex h-16 items-center gap-4 lg:h-[4.5rem]">
-        <Link href="/" className="shrink-0 rounded-md" aria-label="Retail Branding — home" onClick={close}>
+        <Link href="#" className="shrink-0 rounded-md" aria-label="Retail Branding — home" onClick={close}>
           <Logo eager />
         </Link>
 
@@ -42,7 +42,7 @@ export function Header() {
             {mainNav.map((item) => (
               <li key={item.href}>
                 <Link
-                  href={item.href}
+                  href="#"
                   className="whitespace-nowrap rounded-md px-2.5 py-2 text-[15px] font-semibold text-ink hover:bg-navy-50 hover:text-navy"
                 >
                   {item.label}
@@ -55,7 +55,7 @@ export function Header() {
         <div className="ml-auto flex items-center gap-1 sm:gap-2">
           <LangToggle />
           <Link
-            href="/cart"
+            href="#"
             // Below md the cart lives in the bottom navigation.
             className="relative hidden size-11 items-center justify-center rounded-full text-navy hover:bg-navy-50 md:inline-flex"
             aria-label={`${t("cart")}, ${items.length} item${items.length === 1 ? "" : "s"}`}
@@ -67,7 +67,7 @@ export function Header() {
               </span>
             )}
           </Link>
-          <Link href="/quote" className="btn btn-primary hidden md:inline-flex">
+          <Link href="#" className="btn btn-primary hidden md:inline-flex">
             {t("requestQuote")}
           </Link>
           <button
@@ -95,7 +95,7 @@ export function Header() {
             {mainNav.map((item) => (
               <li key={item.href}>
                 <Link
-                  href={item.href}
+                  href="#"
                   onClick={close}
                   className="block rounded-lg px-3 py-3 text-lg font-semibold text-ink hover:bg-navy-50"
                 >
@@ -105,10 +105,10 @@ export function Header() {
             ))}
           </ul>
           <div className="mt-4 grid gap-2 sm:grid-cols-2">
-            <Link href="/customize" onClick={close} className="btn btn-secondary">
+            <Link href="#" onClick={close} className="btn btn-secondary">
               {t("customizeGetPrice")}
             </Link>
-            <Link href="/quote" onClick={close} className="btn btn-primary">
+            <Link href="#" onClick={close} className="btn btn-primary">
               {t("requestQuote")}
             </Link>
           </div>
@@ -161,7 +161,7 @@ export function MobileBottomNav() {
       <ul className="grid grid-cols-5">
         {links.map(({ href, label, Icon, badge }) => (
           <li key={href}>
-            <Link href={href} className="relative flex min-h-14 flex-col items-center justify-center gap-0.5 text-[11px] font-semibold text-navy">
+            <Link href="#" className="relative flex min-h-14 flex-col items-center justify-center gap-0.5 text-[11px] font-semibold text-navy">
               <Icon width={22} height={22} />
               <span className="leading-none">{label}</span>
               {!!badge && (

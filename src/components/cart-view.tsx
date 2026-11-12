@@ -46,10 +46,10 @@ export function CartView() {
         <h2 className="text-2xl">Your cart is empty</h2>
         <p className="mt-2 text-muted">Browse products or build a custom sign to get started.</p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
-          <Link href="/products" className="btn btn-primary">
+          <Link href="#" className="btn btn-primary">
             {t("exploreProducts")}
           </Link>
-          <Link href="/customize" className="btn btn-outline">
+          <Link href="#" className="btn btn-outline">
             {t("customizeSign")}
           </Link>
         </div>
@@ -66,10 +66,10 @@ export function CartView() {
       </ul>
       <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">
         <CartSummary totals={totals} />
-        <Link href="/checkout" className="btn btn-primary w-full">
+        <Link href="#" className="btn btn-primary w-full">
           {t("proceedCheckout")}
         </Link>
-        <Link href="/products" className="btn btn-outline w-full">
+        <Link href="#" className="btn btn-outline w-full">
           Continue shopping
         </Link>
       </aside>
@@ -99,7 +99,7 @@ function CartRow({ item }: { item: CartItem }) {
       <div className="flex flex-col gap-2">
         <div className="flex flex-wrap items-start justify-between gap-2">
           <h3 className="text-lg">
-            <Link href={`/products/${product.slug}`} className="hover:underline">
+            <Link href="#" className="hover:underline">
               {product.name}
             </Link>
           </h3>

@@ -29,7 +29,7 @@ export default function HomePage() {
         title="Shop by Signage Type"
         intro="Start with the type of sign you need. Every category shows whether items have a fixed price, an instant estimate, or need a quotation."
         action={
-          <Link href="/products" className="btn btn-outline">
+          <Link href="#" className="btn btn-outline">
             All products <IconArrowRight />
           </Link>
         }
@@ -70,7 +70,7 @@ export default function HomePage() {
         title="Featured Products"
         className="bg-white"
         action={
-          <Link href="/products" className="btn btn-outline">
+          <Link href="#" className="btn btn-outline">
             Browse all <IconArrowRight />
           </Link>
         }
@@ -96,7 +96,7 @@ export default function HomePage() {
           {solutions.map((s) => (
             <li key={s.slug}>
               <Link
-                href={`/solutions/${s.slug}`}
+                href="#"
                 className="card card-link group flex h-full items-start justify-between gap-3 p-5"
               >
                 <span>
@@ -122,7 +122,7 @@ export default function HomePage() {
             Our first case studies are being prepared. Want to see examples relevant to your business? Ask our team and
             we&apos;ll share past work privately.
           </p>
-          <Link href="/projects" className="btn btn-outline shrink-0">
+          <Link href="#" className="btn btn-outline shrink-0">
             View projects
           </Link>
         </div>
@@ -162,10 +162,10 @@ function Hero() {
             custom-made solutions.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link href="/customize" className="btn btn-primary text-[17px]">
+            <Link href="#" className="btn btn-primary text-[17px]">
               Customize &amp; Get Price <IconArrowRight />
             </Link>
-            <Link href="/products" className="btn btn-ghost-light text-[17px]">
+            <Link href="#" className="btn btn-ghost-light text-[17px]">
               Explore Products
             </Link>
           </div>
@@ -251,7 +251,7 @@ function CustomizerTeaser() {
                 </li>
               ))}
             </ul>
-            <Link href="/customize" className="btn btn-secondary mt-8">
+            <Link href="#" className="btn btn-secondary mt-8">
               Start customizing <IconArrowRight />
             </Link>
           </div>
@@ -293,7 +293,7 @@ function MaterialsGuide() {
       title="Choose the Right Material"
       intro="A quick comparison to help you decide. Our team will confirm suitability for your site."
       action={
-        <Link href="/resources#materials" className="btn btn-outline">
+        <Link href="#" className="btn btn-outline">
           Full guide <IconArrowRight />
         </Link>
       }

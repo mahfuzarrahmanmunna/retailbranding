@@ -41,7 +41,7 @@ export function Breadcrumbs({ items }: { items: { label: string; href?: string }
     <nav aria-label="Breadcrumb" className="mb-4 text-sm">
       <ol className="flex flex-wrap items-center gap-1.5 text-muted">
         <li>
-          <Link href="/" className="underline-offset-4 hover:underline">
+          <Link href="#" className="underline-offset-4 hover:underline">
             Home
           </Link>
         </li>
@@ -49,7 +49,7 @@ export function Breadcrumbs({ items }: { items: { label: string; href?: string }
           <li key={i} className="flex items-center gap-1.5">
             <span aria-hidden="true">/</span>
             {c.href ? (
-              <Link href={c.href} className="underline-offset-4 hover:underline">
+              <Link href="#" className="underline-offset-4 hover:underline">
                 {c.label}
               </Link>
             ) : (
@@ -138,7 +138,7 @@ export function ProductCard({ product }: { product: Product }) {
       <div className="flex flex-1 flex-col gap-2 p-5">
         {category && <p className="text-xs font-bold uppercase tracking-wider text-muted">{category.name}</p>}
         <h3 className="text-lg">
-          <Link href={`/products/${product.slug}`} className="after:absolute after:inset-0">
+          <Link href="#" className="after:absolute after:inset-0">
             {product.name}
           </Link>
         </h3>
@@ -154,7 +154,7 @@ export function ProductCard({ product }: { product: Product }) {
 export function CategoryTile({ category, count }: { category: Category; count?: number }) {
   return (
     <Link
-      href={`/categories/${category.slug}`}
+      href="#"
       className="card card-link group flex flex-col overflow-hidden"
     >
       <div className="card-media aspect-[4/3] overflow-hidden border-b border-line">
@@ -231,10 +231,10 @@ export function QuoteCTA({
           <p className="mt-3 max-w-2xl text-lg text-white/85">{body}</p>
         </div>
         <div className="flex flex-wrap gap-3">
-          <Link href="/quote" className="btn btn-primary">
+          <Link href="#" className="btn btn-primary">
             Request a Quote
           </Link>
-          <Link href="/customize" className="btn btn-ghost-light">
+          <Link href="#" className="btn btn-ghost-light">
             Customize & Get Price
           </Link>
           {wa && (
@@ -282,7 +282,7 @@ export function Footer() {
         </div>
         <FooterCol title="Products">
           {categories.map((c) => (
-            <FooterLink key={c.slug} href={`/categories/${c.slug}`}>
+            <FooterLink key={c.slug}>
               {c.name}
             </FooterLink>
           ))}
@@ -291,11 +291,11 @@ export function Footer() {
           {mainNav
             .filter((n) => n.href !== "/products")
             .map((n) => (
-              <FooterLink key={n.href} href={n.href}>
+              <FooterLink key={n.href}>
                 {n.label}
               </FooterLink>
             ))}
-          <FooterLink href="/quote">Request a Quote</FooterLink>
+          <FooterLink>Request a Quote</FooterLink>
         </FooterCol>
         <div>
           <h2 className="mb-3 text-sm font-bold uppercase tracking-wider !text-yellow">Visit / contact</h2>
@@ -338,22 +338,22 @@ export function Footer() {
           </p>
           <ul className="flex flex-wrap gap-4">
             <li>
-              <Link href="/policies/privacy" className="hover:text-white">
+              <Link href="#" className="hover:text-white">
                 Privacy
               </Link>
             </li>
             <li>
-              <Link href="/policies/terms" className="hover:text-white">
+              <Link href="#" className="hover:text-white">
                 Terms
               </Link>
             </li>
             <li>
-              <Link href="/policies/cancellations-refunds" className="hover:text-white">
+              <Link href="#" className="hover:text-white">
                 Cancellations & refunds
               </Link>
             </li>
             <li>
-              <Link href="/policies/artwork" className="hover:text-white">
+              <Link href="#" className="hover:text-white">
                 Artwork & proofs
               </Link>
             </li>
@@ -373,10 +373,10 @@ function FooterCol({ title, children }: { title: string; children: ReactNode }) 
   );
 }
 
-function FooterLink({ href, children }: { href: string; children: ReactNode }) {
+function FooterLink({ children }: { children: ReactNode }) {
   return (
     <li>
-      <Link href={href} className="hover:text-white hover:underline hover:underline-offset-4">
+      <Link href="#" className="hover:text-white hover:underline hover:underline-offset-4">
         {children}
       </Link>
     </li>

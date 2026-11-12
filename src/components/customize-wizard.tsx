@@ -90,7 +90,7 @@ export function CustomizeWizard() {
               })}
               <p className="rounded-none border-2 border-dashed border-navy/30 bg-white p-4">
                 <strong>Not sure?</strong> Describe your space and goals and our team will recommend options.{" "}
-                <Link href="/quote" className="font-bold text-navy underline">
+                <Link href="#" className="font-bold text-navy underline">
                   Ask an expert
                 </Link>
               </p>
@@ -146,7 +146,7 @@ export function CustomizeWizard() {
                   </button>
                   {added && (
                     <p role="status" className="mt-3 font-semibold text-success">
-                      Added. <Link href="/cart" className="text-navy underline">View cart</Link>
+                      Added. <Link href="#" className="text-navy underline">View cart</Link>
                     </p>
                   )}
                 </div>

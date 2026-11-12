@@ -77,7 +77,7 @@ export function DimensionFields({
           ))}
         </div>
         <p className="field-hint">
-          Need a different size? <Link href="/quote" className="font-semibold text-navy underline">Request a custom quote</Link>.
+          Need a different size? <Link href="#" className="font-semibold text-navy underline">Request a custom quote</Link>.
         </p>
       </fieldset>
     );
@@ -498,10 +498,10 @@ export function ProductConfigurator({ product }: { product: Product }) {
           <div role="status" className="rounded-none border border-success/40 bg-[#e7f4ed] p-4">
             <p className="font-semibold text-success">Added to your cart.</p>
             <div className="mt-2 flex gap-3">
-              <Link href="/cart" className="font-bold text-navy underline">
+              <Link href="#" className="font-bold text-navy underline">
                 View cart
               </Link>
-              <Link href="/checkout" className="font-bold text-navy underline">
+              <Link href="#" className="font-bold text-navy underline">
                 {t("proceedCheckout")}
               </Link>
             </div>

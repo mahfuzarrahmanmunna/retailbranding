@@ -33,7 +33,7 @@ export default function AboutPage() {
         </div>
         <p className="mt-8 text-muted">
           Learn more about our parent company at{" "}
-          <Link href={site.parentSite} className="font-semibold text-navy underline" rel="noopener">retailsolutionsltd.com</Link>.
+          <Link href="#" className="font-semibold text-navy underline" rel="noopener">retailsolutionsltd.com</Link>.
         </p>
       </Section>
       <QuoteCTA />

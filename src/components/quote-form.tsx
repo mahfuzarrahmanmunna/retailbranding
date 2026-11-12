@@ -57,7 +57,7 @@ export function QuoteForm({
           <li>You receive a formal quotation with scope, exclusions and validity.</li>
           <li>Production starts only after you approve the quotation and artwork proof.</li>
         </ol>
-        <Link href="/products" className="btn btn-outline mt-6">
+        <Link href="#" className="btn btn-outline mt-6">
           Continue browsing
         </Link>
       </div>
@@ -169,7 +169,7 @@ export function QuoteForm({
 
       <Checkbox name="consent" error={e.consent} defaultChecked={v.consent === "on"}>
         I agree that Retail Branding may contact me by phone, SMS or WhatsApp about this request, and store my details
-        and files as described in the <Link href="/policies/privacy" className="font-semibold text-navy underline">privacy notice</Link>.
+        and files as described in the <Link href="#" className="font-semibold text-navy underline">privacy notice</Link>.
       </Checkbox>
 
       <button type="submit" className="btn btn-primary w-full text-[17px] sm:w-auto" disabled={pending}>

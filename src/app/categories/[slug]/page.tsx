@@ -61,7 +61,7 @@ export default async function CategoryPage({ params }: PageProps<"/categories/[s
           <div className="card p-5">
             <h2 className="text-lg">Unsure? Ask an expert</h2>
             <p className="mt-1 text-muted">Tell us about your space and we’ll recommend the right option.</p>
-            <Link href="/quote" className="btn btn-primary mt-4 w-full">
+            <Link href="#" className="btn btn-primary mt-4 w-full">
               Request a Quote
             </Link>
           </div>

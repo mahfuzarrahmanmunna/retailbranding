@@ -24,7 +24,7 @@ export default function QuotePage() {
           <div className="card p-5">
             <h2 className="text-lg">Know the exact sign you want?</h2>
             <p className="mt-1 text-muted">Use the Sign Builder to set size, materials and lighting and see an estimate first.</p>
-            <Link href="/customize" className="btn btn-secondary mt-4 w-full">Open Sign Builder</Link>
+            <Link href="#" className="btn btn-secondary mt-4 w-full">Open Sign Builder</Link>
           </div>
           <div className="card p-5">
             <h2 className="text-lg">Helpful to include</h2>

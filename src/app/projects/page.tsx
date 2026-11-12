@@ -27,8 +27,8 @@ export default function ProjectsPage() {
             In the meantime, our team can share relevant examples with you directly.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <Link href="/contact" className="btn btn-primary">Ask for examples</Link>
-            <Link href="/products" className="btn btn-outline">Explore products</Link>
+            <Link href="#" className="btn btn-primary">Ask for examples</Link>
+            <Link href="#" className="btn btn-outline">Explore products</Link>
           </div>
         </div>
       </div>

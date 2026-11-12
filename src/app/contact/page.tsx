@@ -39,7 +39,7 @@ export default function ContactPage() {
           <div className="card p-5">
             <h2 className="text-lg">Need a price?</h2>
             <p className="mt-1 text-muted">A quote request with your size and location gets you the fastest answer.</p>
-            <Link href="/quote" className="btn btn-primary mt-4 w-full">Request a Quote</Link>
+            <Link href="#" className="btn btn-primary mt-4 w-full">Request a Quote</Link>
           </div>
         </aside>
       </div>

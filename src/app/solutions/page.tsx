@@ -21,7 +21,7 @@ export default function SolutionsPage() {
         <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {solutions.map((s) => (
             <li key={s.slug}>
-              <Link href={`/solutions/${s.slug}`} className="card card-link group flex h-full flex-col p-6">
+              <Link href="#" className="card card-link group flex h-full flex-col p-6">
                 <h2 className="text-2xl">{s.name}</h2>
                 <p className="mt-1 font-semibold text-ink">{s.headline}</p>
                 <p className="mt-2 flex-1 text-muted">{s.intro}</p>

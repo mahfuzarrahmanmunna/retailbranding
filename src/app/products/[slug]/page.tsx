@@ -112,7 +112,7 @@ export default async function ProductPage({ params }: PageProps<"/products/[slug
                 <a href="#configure" className="btn btn-primary">
                   {product.pricingMode === "quote" ? "Specify & Request Quote" : "Customize & Get Price"}
                 </a>
-                <Link href="/quote" className="btn btn-outline">
+                <Link href="#" className="btn btn-outline">
                   Request a Site Visit
                 </Link>
               </div>
@@ -166,7 +166,7 @@ export default async function ProductPage({ params }: PageProps<"/products/[slug
                 <li>Share brand colour codes (Pantone, CMYK or HEX) if you have them.</li>
                 <li>You will approve an artwork proof before anything is produced.</li>
               </ul>
-              <Link href="/resources#artwork" className="mt-3 inline-block font-semibold text-navy underline">
+              <Link href="#" className="mt-3 inline-block font-semibold text-navy underline">
                 Read the full artwork guide
               </Link>
             </Tab>

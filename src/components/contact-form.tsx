@@ -35,7 +35,7 @@ export function ContactForm() {
       <TextArea label="How can we help?" name="message" error={e.message} defaultValue={v.message} />
       <Checkbox name="consent" error={e.consent} defaultChecked={v.consent === "on"}>
         I agree to be contacted about my enquiry, as described in the{" "}
-        <Link href="/policies/privacy" className="font-semibold text-navy underline">privacy notice</Link>.
+        <Link href="#" className="font-semibold text-navy underline">privacy notice</Link>.
       </Checkbox>
       <button type="submit" className="btn btn-primary" disabled={pending}>
         {pending ? "Sending…" : "Send Message"}
